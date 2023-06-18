@@ -1,0 +1,39 @@
+{% extends 'root.html' %}
+{% block create %}
+    <a href="{% url 'news:create' %}" type="button"><li><button class="btn btn-danger" style="color: #fff;"><i class="fa-solid fa-circle-plus"></i> Добавить запись</li></button></a>
+{% endblock %}
+{% block content %}
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <h1 style="margin-top: 50px; color: #fff;">Статьи на сайте </h1>
+
+        {% for el in news %}
+            <div class="card text-center" style="background: #FDFCD3; width: 50%; margin-top: 20px;">
+
+                <div class="card-body">
+                    <h4 class="card-title">{{ el.title }}</h4>
+                    <p class="card-text">{{ el.anons }}</p>
+                    <a href="{% url 'news:news_detail' el.id %}" class="btn btn-warning">Подробнее</a>
+                </div>
+
+                <div class="card-footer text-muted">
+                    <p class="card-text">Автор: {{ el.author }}</p>
+                    <p class="card-text">{{ el.date }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <nav aria-label="Page navigation example" style="margin-top: 20px;">
+            <ul class="pagination">
+                {% for p in paginator.page_range %}
+                    {% if page_obj.number == p %}
+                        <li class="page-item active"><p class="page-link">{{ p }}<span class="sr-only">(current)</span></p></li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

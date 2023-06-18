@@ -1,0 +1,4 @@
+Админка
+
+login: admin
+password: 4321

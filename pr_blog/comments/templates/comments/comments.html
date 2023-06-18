@@ -1,0 +1,15 @@
+
+{% for com in comm %}
+        <div class="alert alert-danger">
+                <p>{{ com.author_comm }}</p>
+                <p>{{ com.text_comm }}</p>
+                <p>{{ com.date_comm }}</p>
+        </div>
+{% endfor%}
+
+<form method="post" style="margin-top: 20px;">
+        {% csrf_token %}
+        {{ form.author_comm }}<br>
+        {{ form.text_comm }}<br>
+        {{ form.date_comm }}<br>
+</form>

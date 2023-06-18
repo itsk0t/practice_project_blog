@@ -1,0 +1,8 @@
+{% extends 'root.html' %}
+{% block content %}
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <h1 style="margin-top: 50px; color: #fff;">Сайт со статьями на самые разные темы</h1>
+        <h3 style="color: #fff;">Открой новые горизонты с IT и веб-дизайном - мы поможем воплотить твои идеи!</h3>
+        <a href="{% url 'news:news_home' %}" type="button" class="btn btn-success" style="text-decoration: none;">Читать статьи</a>
+    </div>
+{% endblock %}

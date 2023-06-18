@@ -1,0 +1,94 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="https://kit.fontawesome.com/f62ec13992.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: #2c2c2c;
+        }
+
+        aside {
+            float: left;
+            background: #181818;
+            width: 20%;
+            padding: 2.5%;
+            height: 100vh;
+            color: #fff;
+            border-right: 5px solid #4d4d4d;
+        }
+
+        aside h3 {
+            margin-top: 30px;
+            font-size: 28px;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        aside ul li {
+            color: #fff;
+            display: block;
+            margin-top: 20px;
+            transition: transform .6s ease;
+        }
+
+        aside ul li:hover, aside ul a:hover {
+            color: #ed5959;
+            text-decoration: none;
+            transform: scale(1.05);
+        }
+
+        main {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+        }
+
+        .logo_text {
+            font-size: 30px;
+            font-weight: 900;
+        }
+    </style>
+
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+    <aside>
+        <div class="logo">
+            <p class="logo_text">&#60;&#47;&#62;IT-prosvet</p>
+        </div>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="{% url 'main:main_home' %}"><li><i class="fa-solid fa-house"></i> Главная</li></a>
+            <a href="{% url 'main:about_us' %}"><li><i class="fa-solid fa-address-card"></i> Про нас</li></a>
+            <a href="{% url 'news:news_home' %}"><li><i class="fa-solid fa-newspaper"></i> Новости</li></a>
+            <a href="{% url 'main:contact' %}"><li><i class="fa-solid fa-paper-plane"></i> Контакты</li></a>
+            <a href="{% url 'auth:register' %}"><li><i class="fa-solid fa-user"></i> Вход</li></a>
+
+            {% block create%}
+            {% endblock %}
+        </ul>
+    </aside>
+    <main class="">
+        {% block content %}
+        {% endblock %}
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'root.html' %}
+{% block content %}
+    <div class="card text-center" style="width: 100%; display: flex; flex-direction: column; align-items: center;background: #FDFCD3; width: 80%; margin-top: 50px; padding: 20px;">
+        <form action="." method="post" style="width: 70%;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-success" type="submit" value="Регистрация">
+        </form>
+    </div>
+{% endblock %}
